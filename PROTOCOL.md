@@ -57,7 +57,7 @@ Convert 4bits to decimal. Use decimal to assign corresponding range.
 
 ## Change settings and range
 
-To change settings sent `INTERRUPT out` to endpoint **2** with such format:
+To change settings send `INTERRUPT out` to endpoint **2** with such format:
 
 ### Data format
 `56[settings:4bits][range:4bits]000000000000`
