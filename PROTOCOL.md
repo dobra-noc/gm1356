@@ -8,7 +8,7 @@ Interface is recognised as a **HID** with **two endpoints**. One *in* and one **
 
 To ask for current state, send `URB_INTERRUPT out` to endpoint **2** with capture data `b35902fb00000000`. Then you will receive `URB_INTERRUPT in` from endpoint **1** with data described below.
 
-NOPE, this message for getting current state change. Now I have `b331eb4d00000000`. So probably 3 bytes are dynamic. I have to figure out why and where do they come from.
+NOPE, this message for getting current state change. Now I have `b331eb4d00000000`. So probably 3 bytes are dynamic. I have to figure out why and where do they come from. It's unique for each SoundLab instance. It's not dependent on connecting / disconnecting device and reconnecting it to other ports. It looks that SoundLab doesn't send it to the device before, so it may be irrelevant.
 
 ## Decode current state
 
