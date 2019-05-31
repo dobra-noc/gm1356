@@ -1,0 +1,17 @@
+#!ruby
+# frozen_string_literal: true
+
+require 'optparse'
+require_relative '../lib/gm3156'
+
+device = GM3156::Device.new
+device.open
+
+begin
+  device.read do |data|
+    GM3156::Record.new(data).print
+  end
+rescue Exception # rubocop:disable Lint/RescueException
+  device.close
+  raise
+end
