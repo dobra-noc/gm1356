@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 module GM3156
   require 'hidapi'
   require_relative 'errors'
