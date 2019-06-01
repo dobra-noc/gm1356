@@ -4,14 +4,48 @@
 require 'optparse'
 require_relative '../lib/gm3156'
 
-device = GM3156::Device.new
-device.open
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = 'Usage: gm3156 [options]'
+
+  opts.on('-fFILTER', '--filter=FILTER', String, 'A/C filter') do |f|
+    options[:filter] = :a if f.downcase == 'a'
+    options[:filter] = :c if f.downcase == 'c'
+  end
+
+  opts.on('-sSPEED', '--speed=SPEED', String, 'SLOW/FAST mode') do |s|
+    options[:speed] = :slow if ['slow', 's'].include? s.downcase
+    options[:speed] = :fast if ['fast', 'f'].include? s.downcase
+  end
+
+  opts.on('-mBOOLEAN', '--max=BOOLEAN', TrueClass, 'enable/disable MAX mode') do |m|
+    options[:max_mode] = m
+  end
+
+  opts.on('-rINTEGER', '--range=INTEGER', Integer, 'measured levels range ') do |l|
+    options[:max_mode] = l if (0..4).include? l
+  end
+
+  opts.on('--just-set', TrueClass, 'just set options and exit') do
+    options[:just_set] = true
+  end
+
+  opts.on("-h", "--help", "Prints this help") do
+    puts opts
+    exit
+  end
+end.parse!
+
+device = GM3156::Device.new(options)
 
 begin
-  device.read do |data|
-    GM3156::Record.new(data).print
+  device.read do |record|
+    puts record.to_s
   end
 rescue Exception # rubocop:disable Lint/RescueException
   device.close
   raise
-end
+end unless options[:just_set]
+
+device.close
