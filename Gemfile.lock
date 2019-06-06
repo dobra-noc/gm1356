@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    gm3156 (0.0.2)
+      hidapi (= 0.1.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -35,9 +41,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  hidapi
+  gm3156!
   pry
   rubocop
 
 BUNDLED WITH
-   1.16.0
+   1.17.2

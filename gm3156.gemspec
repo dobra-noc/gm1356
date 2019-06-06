@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name           = 'gm3156'
-  s.version        = '0.0.1'
+  s.version        = '0.0.2'
   s.date           = '2019-05-31'
   s.summary        = 'Captures and prints data, supports editing settings.'
   s.description    = 'Digital Sound Level Meter Gm1356 USB driver for Linux.'
@@ -14,4 +14,6 @@ Gem::Specification.new do |s|
   s.homepage       = 'https://github.com/ciembor/gm1356'
   s.license        = 'MIT'
   s.add_dependency 'hidapi', '= 0.1.9'
+  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'pry'
 end

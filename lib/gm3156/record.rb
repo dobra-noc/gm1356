@@ -6,11 +6,11 @@ module GM3156
   class Record
     def initialize(message)
       self.timestamp = Time.now
-      self.spl = extract_spl(message)
+      self.spl = assign_spl(message)
       self.settings = Settings.new(message)
     end
 
-    def extract_spl(message)
+    def assign_spl(message)
       message[0..3].to_i(16).to_s.insert(-2, '.').to_f
     end
 
