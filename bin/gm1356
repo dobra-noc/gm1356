@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 require 'optparse'
-require_relative '../lib/gm3156'
+require_relative '../lib/gm1356'
 
 options = {}
 
 OptionParser.new do |opts|
-  opts.banner = 'Usage: gm3156 [options]'
+  opts.banner = 'Usage: gm1356 [options]'
 
   opts.on('-fFILTER', '--filter=FILTER', String, 'A/C filter') do |f|
     options[:filter] = :a if f.downcase == 'a'
@@ -37,7 +37,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-device = GM3156::Device.new(options)
+device = GM1356::Device.new(options)
 
 begin
   device.read do |record|

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module GM3156
+module GM1356
   class InvalidCaptureDataLengthError < StandardError
     attr_reader :data
 
