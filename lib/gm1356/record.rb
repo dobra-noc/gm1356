@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module GM3156
+module GM1356
   require_relative 'settings'
 
   class Record
@@ -14,8 +14,16 @@ module GM3156
       message[0..3].to_i(16).to_s.insert(-2, '.').to_f
     end
 
+    def filter
+      settings.filter.to_s.capitalize
+    end
+
+    def format
+      "dB#{filter}"
+    end
+
     def to_s
-      output = "#{timestamp.strftime('%H:%M:%S')} \t SPL: #{spl}dB#{settings.filter.to_s.capitalize}"
+      output = "#{timestamp.strftime('%H:%M:%S')} \t SPL: #{spl}#{format}"
       output += "\t MAX mode" if settings.max_mode
       output
     end

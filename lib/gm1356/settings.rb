@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module GM3156
+module GM1356
   class Settings
     AVAILABLE_RANGES = [
       '30-120',

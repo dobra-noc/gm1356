@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gm3156 (0.0.2)
+    gm1356 (0.0.2)
       hidapi (= 0.1.9)
 
 GEM
@@ -41,7 +41,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gm3156!
+  gm1356!
   pry
   rubocop
 

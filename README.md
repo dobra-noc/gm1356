@@ -6,7 +6,7 @@ This driver was written for **Digital Sound Level Meter** with USB (type **GM135
 ## Installation
 First make sure you have `ruby` interpreter installed. Then run:
 
-```gem install gm3156```
+```gem install gm1356```
 
 Now make sure that `users` have access to your device. In my case I had to create `/etc/udev/rules.d/90-usbpermission.rules` with such content:
 
@@ -21,11 +21,11 @@ And after all reconnect your device if it was already connected.
 ## Usage
 If you want to print real time data from your sonometer, run:
 
-```gm3156```
+```gm1356```
 
 For more options:
 
-```gm3156 --help```
+```gm1356 --help```
 
 ## Protocol
 I used Wireshark with USBPcap to sniff communication between my device and SoundLab on Windows in order to understend the protocol. Protocol is described in [PROTOCOL.md](PROTOCOL.md).
