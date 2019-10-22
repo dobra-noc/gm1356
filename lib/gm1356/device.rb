@@ -25,7 +25,7 @@ module GM1356
       loop do
         Thread.new do
           read_current_state(&block)
-        end
+        end.abort_on_exception = true
         sleep settings.speed == :fast? ? 0.5 : 1
       end
     end
