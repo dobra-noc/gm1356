@@ -41,7 +41,8 @@ device = GM1356::Device.new(options)
 
 begin
   device.read do |record|
-    puts record.to_s
+    print record.to_s
+    print "\n"
   end
 rescue Exception # rubocop:disable Lint/RescueException
   device.close
