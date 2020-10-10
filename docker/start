@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb gm1356
